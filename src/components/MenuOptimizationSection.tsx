@@ -8,22 +8,26 @@ const MenuOptimizationSection: React.FC = () => {
     {
       icon: <ChefHat className="h-6 w-6 text-restaurant-teal" />,
       title: "AI-Driven Recipe Recommendations",
-      description: "Get creative recipe suggestions based on your current inventory, reducing waste and maximizing ingredient usage."
+      description: "Get creative recipe suggestions based on your current inventory, reducing waste and maximizing ingredient usage.",
+      slug: "ai-recipe-recommendations"
     },
     {
       icon: <DollarSign className="h-6 w-6 text-restaurant-teal" />,
       title: "Cost Optimization",
-      description: "Analyze ingredient costs and menu pricing to improve profit margins while maintaining customer satisfaction."
+      description: "Analyze ingredient costs and menu pricing to improve profit margins while maintaining customer satisfaction.",
+      slug: "cost-optimization"
     },
     {
       icon: <Cpu className="h-6 w-6 text-restaurant-teal" />,
       title: "Custom Dish Creation",
-      description: "Use AI to develop unique dishes that set your restaurant apart and keep customers coming back for more."
+      description: "Use AI to develop unique dishes that set your restaurant apart and keep customers coming back for more.",
+      slug: "custom-dish-creation"
     },
     {
       icon: <Utensils className="h-6 w-6 text-restaurant-teal" />,
       title: "Seasonal Menu Planning",
-      description: "Automatically generate seasonal menu options based on ingredient availability, cost, and customer preferences."
+      description: "Automatically generate seasonal menu options based on ingredient availability, cost, and customer preferences.",
+      slug: "seasonal-menu-planning"
     }
   ];
 

@@ -8,22 +8,26 @@ const AIPredictionSection: React.FC = () => {
     {
       icon: <TrendingUp className="h-6 w-6 text-restaurant-teal" />,
       title: "Sales Forecasting",
-      description: "Predict future sales with AI that analyzes historical data, seasonal trends, local events, and weather patterns."
+      description: "Predict future sales with AI that analyzes historical data, seasonal trends, local events, and weather patterns.",
+      slug: "sales-forecasting"
     },
     {
       icon: <ArrowDownCircle className="h-6 w-6 text-restaurant-teal" />,
       title: "Waste Prediction",
-      description: "Identify potential food waste before it happens by analyzing preparation patterns, shelf life, and sales velocities."
+      description: "Identify potential food waste before it happens by analyzing preparation patterns, shelf life, and sales velocities.",
+      slug: "waste-prediction"
     },
     {
       icon: <RefreshCw className="h-6 w-6 text-restaurant-teal" />,
       title: "Dynamic Inventory Replenishment",
-      description: "Automatically generate optimal order quantities based on predicted demand and current inventory levels."
+      description: "Automatically generate optimal order quantities based on predicted demand and current inventory levels.",
+      slug: "dynamic-inventory-replenishment"
     },
     {
       icon: <BarChart2 className="h-6 w-6 text-restaurant-teal" />,
       title: "Demand Pattern Recognition",
-      description: "Identify patterns in customer ordering behavior to optimize staffing and preparation schedules."
+      description: "Identify patterns in customer ordering behavior to optimize staffing and preparation schedules.",
+      slug: "demand-pattern-recognition"
     }
   ];
 

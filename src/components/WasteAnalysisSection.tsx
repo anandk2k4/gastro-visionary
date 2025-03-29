@@ -8,22 +8,26 @@ const WasteAnalysisSection: React.FC = () => {
     {
       icon: <Trash2 className="h-6 w-6 text-restaurant-teal" />,
       title: "Food Waste Classification",
-      description: "Automatically categorize waste by type, enabling targeted reduction strategies and better recycling practices."
+      description: "Automatically categorize waste by type, enabling targeted reduction strategies and better recycling practices.",
+      slug: "food-waste-classification"
     },
     {
       icon: <MapPin className="h-6 w-6 text-restaurant-teal" />,
       title: "Waste Heatmap",
-      description: "Visualize waste patterns throughout your kitchen to identify problem areas and improvement opportunities."
+      description: "Visualize waste patterns throughout your kitchen to identify problem areas and improvement opportunities.",
+      slug: "waste-heatmap"
     },
     {
       icon: <TrendingUp className="h-6 w-6 text-restaurant-teal" />,
       title: "Loss-to-Profit Dashboard",
-      description: "Convert waste data into financial metrics that show the direct impact on your bottom line."
+      description: "Convert waste data into financial metrics that show the direct impact on your bottom line.",
+      slug: "loss-to-profit-dashboard"
     },
     {
       icon: <PieChart className="h-6 w-6 text-restaurant-teal" />,
       title: "Sustainability Reporting",
-      description: "Generate sustainability reports to share your progress with staff and customers, building your eco-friendly brand."
+      description: "Generate sustainability reports to share your progress with staff and customers, building your eco-friendly brand.",
+      slug: "sustainability-reporting"
     }
   ];
 

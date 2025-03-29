@@ -2,6 +2,7 @@
 import React from 'react';
 import { Camera, Eye, AlertTriangle, Layers } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 
 interface FeatureSectionProps {
   id: string;
@@ -12,6 +13,7 @@ interface FeatureSectionProps {
     icon: React.ReactNode;
     title: string;
     description: string;
+    slug: string;
   }[];
   imageUrl: string;
   reverse?: boolean;
@@ -51,19 +53,20 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({
           <div className="md:w-1/2">
             <div className="grid gap-6">
               {features.map((feature, index) => (
-                <div 
+                <Link 
                   key={index}
-                  className="flex items-start gap-4 p-6 rounded-lg hover:bg-gray-50 transition-colors duration-300 animate-fade-in"
+                  to={`/features/${feature.slug}`}
+                  className="flex items-start gap-4 p-6 rounded-lg hover:bg-gray-50 transition-colors duration-300 animate-fade-in group cursor-pointer"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="bg-restaurant-teal/10 p-3 rounded-full">
+                  <div className="bg-restaurant-teal/10 p-3 rounded-full group-hover:bg-restaurant-teal/20 transition-colors">
                     {feature.icon}
                   </div>
                   <div>
-                    <h4 className="text-xl font-semibold mb-2 text-restaurant-blue-dark">{feature.title}</h4>
+                    <h4 className="text-xl font-semibold mb-2 text-restaurant-blue-dark group-hover:text-restaurant-teal transition-colors">{feature.title}</h4>
                     <p className="text-gray-600">{feature.description}</p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
@@ -78,22 +81,26 @@ export const ComputerVisionSection: React.FC = () => {
     {
       icon: <Camera className="h-6 w-6 text-restaurant-teal" />,
       title: "Visual Inventory Tracking",
-      description: "Cameras automatically identify and log inventory items, eliminating manual counting and reducing human error."
+      description: "Cameras automatically identify and log inventory items, eliminating manual counting and reducing human error.",
+      slug: "visual-inventory-tracking"
     },
     {
       icon: <Eye className="h-6 w-6 text-restaurant-teal" />,
       title: "Real-Time Stock Detection",
-      description: "Continuous monitoring alerts you when stock levels are running low, preventing shortages during peak hours."
+      description: "Continuous monitoring alerts you when stock levels are running low, preventing shortages during peak hours.",
+      slug: "real-time-stock-detection"
     },
     {
       icon: <AlertTriangle className="h-6 w-6 text-restaurant-teal" />,
       title: "Food Spoilage Detection",
-      description: "Advanced algorithms detect early signs of food spoilage, helping you reduce waste and maintain quality standards."
+      description: "Advanced algorithms detect early signs of food spoilage, helping you reduce waste and maintain quality standards.",
+      slug: "food-spoilage-detection"
     },
     {
       icon: <Layers className="h-6 w-6 text-restaurant-teal" />,
       title: "Automated Inventory Reports",
-      description: "Generate detailed inventory reports automatically based on visual data, saving hours of manual work."
+      description: "Generate detailed inventory reports automatically based on visual data, saving hours of manual work.",
+      slug: "automated-inventory-reports"
     }
   ];
 
