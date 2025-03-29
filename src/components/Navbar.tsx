@@ -29,9 +29,9 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
     <div className="fixed top-0 left-0 right-0 z-50 px-4 py-4 sm:px-6 md:py-6">
       <nav 
         className={cn(
-          'max-w-6xl mx-auto rounded-full transition-all duration-300 py-2 px-4 sm:px-6',
+          'max-w-6xl mx-auto transition-all duration-300 py-2 px-4 sm:px-6',
           scrolled 
-            ? 'bg-white/90 backdrop-blur-md shadow-lg' 
+            ? 'bg-white/90 backdrop-blur-md shadow-md' 
             : 'bg-white/60 backdrop-blur-sm',
           className
         )}
@@ -51,7 +51,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
             <NavLink href="#menu">Menu Optimization</NavLink>
             <NavLink href="#waste">Waste Analysis</NavLink>
             <div className="ml-2">
-              <Button className="bg-restaurant-teal hover:bg-restaurant-blue-dark text-white transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+              <Button className="bg-restaurant-teal hover:bg-restaurant-blue-dark text-white transition-all duration-300 shadow-md hover:shadow-lg">
                 Get Started
               </Button>
             </div>
@@ -68,8 +68,8 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full mt-2 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl shadow-lg z-40 animate-fade-in overflow-hidden">
-            <div className="px-6 py-4 flex flex-col space-y-4">
+          <div className="md:hidden absolute top-full mt-2 left-4 right-4 bg-white/95 backdrop-blur-md shadow-md z-40 animate-fade-in">
+            <div className="px-6 py-4 flex flex-col space-y-3">
               <MobileNavLink href="#features" onClick={() => setIsMenuOpen(false)}>Features</MobileNavLink>
               <MobileNavLink href="#vision" onClick={() => setIsMenuOpen(false)}>Computer Vision</MobileNavLink>
               <MobileNavLink href="#prediction" onClick={() => setIsMenuOpen(false)}>AI Prediction</MobileNavLink>
@@ -89,7 +89,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
 const NavLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
   <a
     href={href}
-    className="text-gray-700 hover:text-restaurant-teal px-3 py-2 rounded-full hover:bg-gray-100/50 transition-colors duration-300 font-medium"
+    className="text-gray-700 hover:text-restaurant-teal px-3 py-2 hover:bg-gray-100/50 transition-colors duration-300 font-medium"
   >
     {children}
   </a>
