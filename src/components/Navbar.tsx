@@ -1,8 +1,9 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { Link } from 'react-router-dom';
 
 interface NavbarProps {
   className?: string;
@@ -10,14 +11,35 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ className }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 20;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [scrolled]);
 
   return (
-    <nav className={cn('w-full bg-white py-4 px-6 shadow-sm sticky top-0 z-50', className)}>
+    <nav 
+      className={cn(
+        'w-full py-4 px-6 fixed top-0 z-50 transition-all duration-300',
+        scrolled 
+          ? 'bg-white/95 backdrop-blur-sm shadow-md' 
+          : 'bg-transparent',
+        className
+      )}
+    >
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
-          <h1 className="text-2xl font-bold text-restaurant-blue-dark">
+          <Link to="/" className="text-2xl font-bold text-restaurant-blue-dark">
             GastroVision<span className="text-restaurant-teal">AI</span>
-          </h1>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
@@ -30,7 +52,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
         </div>
 
         <div className="hidden md:block">
-          <Button className="bg-restaurant-teal hover:bg-restaurant-blue-dark text-white">
+          <Button className="bg-restaurant-teal hover:bg-restaurant-blue-dark text-white transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
             Get Started
           </Button>
         </div>
@@ -46,14 +68,14 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 right-0 bg-white shadow-md z-40 animate-fade-in">
+        <div className="md:hidden absolute top-16 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-md z-40 animate-fade-in">
           <div className="container mx-auto px-6 py-4 flex flex-col space-y-4">
             <MobileNavLink href="#features" onClick={() => setIsMenuOpen(false)}>Features</MobileNavLink>
             <MobileNavLink href="#vision" onClick={() => setIsMenuOpen(false)}>Computer Vision</MobileNavLink>
             <MobileNavLink href="#prediction" onClick={() => setIsMenuOpen(false)}>AI Prediction</MobileNavLink>
             <MobileNavLink href="#menu" onClick={() => setIsMenuOpen(false)}>Menu Optimization</MobileNavLink>
             <MobileNavLink href="#waste" onClick={() => setIsMenuOpen(false)}>Waste Analysis</MobileNavLink>
-            <Button className="bg-restaurant-teal hover:bg-restaurant-blue-dark text-white w-full">
+            <Button className="bg-restaurant-teal hover:bg-restaurant-blue-dark text-white w-full shadow-md transition-all duration-300">
               Get Started
             </Button>
           </div>
